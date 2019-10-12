@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs
+/ContactsManager/.vs/ContactsManager/v16
+/ContactsManager/ContactsManager.Tests/obj/Debug
+/ContactsManager/packages
+/ContactsManager/ContactsManager/bin/Debug
+/ContactsManager/ContactsManager/obj/Debug
+/ContactsManager/ContactsManager.Tests/bin/Debug
