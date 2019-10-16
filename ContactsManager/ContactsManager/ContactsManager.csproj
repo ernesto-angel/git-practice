@@ -44,11 +44,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contact.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="contacts_space_delimeted.txt" />
+    <Content Include="contacts_pipe_delimeted.txt" />
+    <Content Include="contacts_comma_delimeted.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

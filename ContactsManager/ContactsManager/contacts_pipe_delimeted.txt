@@ -1,0 +1,4 @@
+﻿Lightfoot | Lori | Female | Gray | 1974-01-01
+Daley | Richard | Male | Yellow | 1948-01-01
+O'Malley | Jack | Male | Violet | 1951-01-01
+Gutierrez | Luis | Male | Purple | 1955-01-01

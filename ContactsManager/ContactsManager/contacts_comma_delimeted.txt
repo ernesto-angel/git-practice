@@ -1,0 +1,4 @@
+﻿Ali, Mohammed, Male, White, 1935-01-01
+Frazier, Joe, Male, Green, 1937-01-01
+Joyner, Jackie, Female, Red, 1961-01-01
+Patrick, Danica, Female, Blue, 1982-01-01

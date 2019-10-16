@@ -13,15 +13,15 @@ namespace ContactsManager.Tests
         private DateTime _dob = new DateTime(1921, 11, 26);
  
         [Test]
-        [TestCase(' ')]
-        [TestCase('|')]
-        [TestCase(',')]
-        public void ParseDelimetedContact(char delimeter)
+        [TestCase(" ")]
+        [TestCase(" | ")]
+        [TestCase(", ")]
+        public void ParseDelimetedContact(string delimeter)
         {
             var input = string.Join(delimeter.ToString(), _lastName, _firstName, _gender, _favColor, _dob.ToString("yyyy-MM-dd"));
 
             Contact contact = null;
-            char delimeterUsedByParser = 'X';
+            string delimeterUsedByParser = null;
             Assert.DoesNotThrow(() => { contact = Contact.Parse(input, out delimeterUsedByParser); }, "Parse without providing delimeter");
             Assert.IsNotNull(contact);
             Assert.AreEqual(delimeter, delimeterUsedByParser);
@@ -43,41 +43,38 @@ namespace ContactsManager.Tests
         }
 
         [Test]
-        [TestCase(' ')]
-        [TestCase('|')]
-        [TestCase(',')]
-        public void TryParseWithInvalidInput(char delimeter)
+        [TestCase(" ")]
+        [TestCase(" | ")]
+        [TestCase(", ")]
+        public void TryParseWithInvalidInput(string delimeter)
         {
             var input = string.Join(delimeter.ToString(), _lastName, _firstName, _gender, _favColor, _dob.ToString("yyyy-MM-dd"), "OH!NO!");
 
-            Contact contact = null;
-            char delimeterUsedByParser = 'X';
-            Assert.Throws<FormatException>(() => { contact = Contact.Parse(input, out delimeterUsedByParser); }, "Parse without providing delimeter");
+            Assert.Throws<FormatException>(() => Contact.Parse(input), "Parse without providing delimeter");
 
-            contact = null;
-            Assert.Throws<FormatException>(() => { contact = Contact.Parse(input, delimeter); }, "Parse with specified delimeter");
+            Assert.Throws<FormatException>(() => Contact.Parse(input, delimeter), "Parse with specified delimeter");
         }
 
         [Test]
-        [TestCase(' ')]
-        [TestCase('|')]
-        [TestCase(',')]
-        public void TryParseWithInvalidDelimeter(char delimeter)
+        [TestCase(" ")]
+        [TestCase(" | ")]
+        [TestCase(", ")]
+        public void TryParseWithInvalidDelimeter(string delimeter)
         {
             var input = string.Join(delimeter.ToString(), _lastName, _firstName, _gender, _favColor, _dob.ToString("yyyy-MM-dd"));
 
-            Assert.Throws<ArgumentOutOfRangeException>(() => Contact.Parse(input, '*'), "Parse with invalid delimeter");
+            Assert.Throws<ArgumentOutOfRangeException>(() => Contact.Parse(input, "*"), "Parse with invalid delimeter");
         }
 
         [Test]
-        [TestCase(' ')]
-        [TestCase('|')]
-        [TestCase(',')]
-        public void TryParseWithInvalidDateOfBirthFormat(char delimeter)
+        [TestCase(" ")]
+        [TestCase(" | ")]
+        [TestCase(", ")]
+        public void TryParseWithInvalidDateOfBirthFormat(string delimeter)
         {
             var input = string.Join(delimeter.ToString(), _lastName, _firstName, _gender, _favColor, _dob.ToString("yy-MM-dd"));
 
-            Assert.Throws<ArgumentOutOfRangeException>(() => Contact.Parse(input, delimeter), "Parse with invalid date format");
+            Assert.Throws<FormatException>(() => Contact.Parse(input, delimeter), "Parse with invalid date format");
         }
     }
 }
