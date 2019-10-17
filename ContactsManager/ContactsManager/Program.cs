@@ -25,8 +25,8 @@ namespace ContactsManager
             DumpContacts(allContacts.OrderContactsByLastNameDescending());
             Console.WriteLine();
 
-            Console.WriteLine("--------This is the end of the road pal.... Press any key to exit");
-            Console.ReadKey();
+            var service = new MicroService4Net.MicroService();
+            service.Run(args);
         }
 
         private static void ImportContacts(IRepository repo)

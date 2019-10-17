@@ -10,5 +10,6 @@ namespace ContactsManager
     {
         IEnumerable<Contact> GetAllContacts();
         void SaveNewContact(Contact contact);
+        void DeleteAllContacts();
     }
 }

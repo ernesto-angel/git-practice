@@ -7,7 +7,7 @@ namespace ContactsManager.Tests
     [TestFixture]
     public class ContactSortingTests
     {
-        private IRepository _repo = null;
+        private IRepository _repo = new Repository();
         private Contact _johnDoe = null;
         private Contact _janeDoe = null;
         private Contact _jillDavis = null;
@@ -15,7 +15,7 @@ namespace ContactsManager.Tests
         [SetUp]
         public void InitializeRepo()
         {
-            _repo = new Repository();
+            _repo.DeleteAllContacts();
             _janeDoe = null;
             _johnDoe = null;
             _jillDavis = null;

@@ -2,7 +2,7 @@
 
 namespace ContactsManager
 {
-    public class Repository : IRepository
+    public class Repository : IRepository //This could be a static class, but unlikely in a real life app
     {
         private static List<Contact> _contacts = new List<Contact>();
 
@@ -14,6 +14,11 @@ namespace ContactsManager
         public void SaveNewContact(Contact contact)
         {
             _contacts.Add(contact); //ToDo don't worry about duplicates for now
+        }
+
+        public void DeleteAllContacts()
+        {
+            _contacts.Clear();
         }
     }
 }
