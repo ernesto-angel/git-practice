@@ -76,7 +76,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiControllerBase.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="IRepository.cs" />
